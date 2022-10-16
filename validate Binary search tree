@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+      return valid(root,LLONG_MIN,LLONG_MAX)  ;
+    }
+  bool valid(TreeNode * node, long start , long end){
+    if(node==NULL){
+      return true ;
+      
+    }
+    if(node->val>start && node->val<end)
+    {
+      return valid(node->left,start,node->val) && valid(node->right,node->val,end);
+    }
+    
+    return false ;
+  }
+};
+
+
+// idr kuch khass nai kiya hai just ek minimum and maximaum values rakh li hai 
